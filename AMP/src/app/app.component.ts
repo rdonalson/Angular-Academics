@@ -3,8 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Angular: Getting Started';
+  // tslint:disable-next-line: no-inferrable-types
+  pageTitle: string = 'Angular: Getting Started';
 }
