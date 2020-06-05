@@ -1,4 +1,4 @@
-export const paths = {
+export const Paths = {
   home: 'home',
-  product: 'product'
+  products: 'products'
 };
