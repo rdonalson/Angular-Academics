@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../product';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  styleUrls: ['./product-list.component.scss'],
+  // providers: [ProductService]
 })
 export class ProductListComponent implements OnInit {
-
   pageTitle: string = 'Product List';
   imageWidth: number = 50;
   imageMargin: number = 2;
   showImage: boolean = false;
+  errorMessage: string;
+
   // tslint:disable-next-line: variable-name
   private _listFilter: string;
   get listFilter(): string {
@@ -19,40 +22,28 @@ export class ProductListComponent implements OnInit {
   }
   set listFilter(value: string) {
     this._listFilter = value;
-    this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
+    this.filteredProducts = this.listFilter
+      ? this.performFilter(this.listFilter)
+      : this.products;
   }
-
+  products: IProduct[];
   filteredProducts: IProduct[];
 
-  constructor() {
-    this.filteredProducts = this.products;
-    this.listFilter = 'cart';
-  }
-
-  products: IProduct[] = [
-    {
-      productId: 2,
-      productName: 'Garden Cart',
-      productCode: 'GDN-0023',
-      releaseDate: 'March 18, 2019',
-      description: '15 gallon capacity rolling garden cart',
-      price: 32.99,
-      starRating: 4.2,
-      imageUrl: 'assets/images/garden_cart.png'
-    },
-    {
-      productId: 5,
-      productName: 'Hammer',
-      productCode: 'TBX-0048',
-      releaseDate: 'May 21, 2019',
-      description: 'Curved claw steel hammer',
-      price: 8.9,
-      starRating: 4.8,
-      imageUrl: 'assets/images/hammer.png'
-    }
-  ];
+  constructor(
+    private productService: ProductService
+  ) { }
 
   ngOnInit() {
+    this.productService.getProducts().subscribe({
+      next: products => {
+        this.products = products;
+        this.filteredProducts = this.products;
+      },
+      error: err => this.errorMessage = err
+    });
+  }
+  onRatingClicked(message: string): void {
+    this.pageTitle = 'Product List: ' + message;
   }
 
   toggleImage(): void {
@@ -61,7 +52,9 @@ export class ProductListComponent implements OnInit {
 
   performFilter(filterBy: string): IProduct[] {
     filterBy = filterBy.toLocaleLowerCase();
-    return this.products.filter((product: IProduct) => product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    return this.products.filter(
+      (product: IProduct) =>
+        product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1
+    );
   }
-
 }
