@@ -9,6 +9,9 @@ import { AboutComponent } from './about/about.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
 import { StarComponent } from './shared/components/star/star.component';
+import { WelcomeComponent } from './home/welcome.component';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { PageNotFoundComponent } from './system/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { StarComponent } from './shared/components/star/star.component';
     AboutComponent,
     ProductListComponent,
     ConvertToSpacesPipe,
-    StarComponent
+    StarComponent,
+    WelcomeComponent,
+    ProductDetailComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
