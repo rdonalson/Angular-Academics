@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from '../product';
+import { IProduct } from '../../shared/models/product';
 
 @Component({
   templateUrl: './product-detail.component.html',

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -12,6 +12,8 @@ import { StarComponent } from './shared/components/star/star.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { PageNotFoundComponent } from './system/page-not-found/page-not-found.component';
+import { GlobalErrorComponent } from './system/error/global-error/global-error.component';
+import { GlobalErrorHandlerService } from './system/error/helpers/global-error-handler.service';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { PageNotFoundComponent } from './system/page-not-found/page-not-found.co
     StarComponent,
     WelcomeComponent,
     ProductDetailComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    GlobalErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,10 @@ import { PageNotFoundComponent } from './system/page-not-found/page-not-found.co
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    GlobalErrorHandlerService,
+    { provide: ErrorHandler, useClass: GlobalErrorHandlerService }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

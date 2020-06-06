@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from '../product';
+import { IProduct } from '../../shared/models/product';
 import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
-  selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
   // providers: [ProductService]
@@ -13,7 +12,6 @@ export class ProductListComponent implements OnInit {
   imageWidth: number = 50;
   imageMargin: number = 2;
   showImage: boolean = false;
-  errorMessage: string;
 
   // tslint:disable-next-line: variable-name
   private _listFilter: string;
@@ -39,7 +37,7 @@ export class ProductListComponent implements OnInit {
         this.products = products;
         this.filteredProducts = this.products;
       },
-      error: err => this.errorMessage = err
+      error: err => { throw err; }
     });
   }
   onRatingClicked(message: string): void {

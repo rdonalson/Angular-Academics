@@ -1,4 +1,5 @@
 export const Paths = {
   home: 'home',
-  products: 'products'
+  products: 'products',
+  error: 'error'
 };
