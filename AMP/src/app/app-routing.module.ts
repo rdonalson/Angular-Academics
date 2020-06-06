@@ -9,10 +9,12 @@ import { Paths } from './shared/models/paths';
 import { PathResolveService } from './shared/services/path-resolve.service';
 import { GlobalErrorComponent } from './system/error/global-error/global-error.component';
 import { ProductDetailGuard } from './shared/guards/product-detail.guard';
+import { AboutComponent } from './about/about.component';
 
 
 const routes: Routes = [
   { path: Paths.home, component: WelcomeComponent },
+  { path: Paths.about, component: AboutComponent },
   { path: Paths.error, component: GlobalErrorComponent },
   { path: Paths.products, component: ProductListComponent },
   { path: Paths.products + '/:id',
