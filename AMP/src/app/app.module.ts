@@ -21,9 +21,10 @@ import { ProductModule } from './products/product.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
-    ProductModule],
+    ProductModule,
+    AppRoutingModule
+  ],
   providers: [
     GlobalErrorHandlerService,
     { provide: ErrorHandler,
