@@ -9,7 +9,7 @@ import { WelcomeComponent } from './home/welcome.component';
 import { PageNotFoundComponent } from './system/page-not-found/page-not-found.component';
 import { GlobalErrorComponent } from './system/error/global-error/global-error.component';
 import { GlobalErrorHandlerService } from './system/error/helpers/global-error-handler.service';
-import { ProductModule } from './products/product.module';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { ProductModule } from './products/product.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    ProductModule,
+    ProductsModule,
     AppRoutingModule
   ],
   providers: [
