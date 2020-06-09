@@ -13,6 +13,14 @@
         </div>
     </div>
 
+    <div class="form-group">
+      <button type="button" class="btn btn-primary" name="singleModel"
+          [(ngModel)]="singleModel" btnCheckbox
+          btnCheckboxTrue="On" btnCheckboxFalse="Off">
+            {{ singleModel }}
+      </button>
+    </div>
+
     <!-- <br>
     <h6>dirty: {{ propertyTest.dirty }}</h6>
     <h6>pristine: {{ propertyTest.pristine }}</h6>
@@ -36,7 +44,17 @@
     </div>
     <p>User Interface Style</p>
     <div class="form-group">
-      <div class="form-check">
+
+      <div class="btn-group">
+        <label class="btn btn-primary" [(ngModel)]="userSettings.interfaceStyle" id="lightInterface" name="interfaceStyle"
+               btnRadio="light" tabindex="0" role="button">Light</label>
+        <label class="btn btn-primary" [(ngModel)]="userSettings.interfaceStyle" id="mediumInterface" name="interfaceStyle"
+               btnRadio="medium" tabindex="0" role="button">Medium</label>
+        <label class="btn btn-primary" [(ngModel)]="userSettings.interfaceStyle" id="darkInterface" name="interfaceStyle"
+               btnRadio="dark" tabindex="0" role="button">Dark</label>
+      </div>
+
+      <!-- <div class="form-check">
         <input class="form-check-input" type="radio" name="interfaceStyle" [(ngModel)]="userSettings.interfaceStyle"
           id="lightInterface"
           value="light"
@@ -60,14 +78,53 @@
         <label class="form-check-label" for="darkInterface">
           Dark
         </label>
-      </div>
+      </div> -->
     </div>
+
+    <div class="form-group">
+      <label for="startDate" >Start Date</label>
+      <input type="text"
+        placeholder="Start Date"
+        class="form-control"
+        [(ngModel)]="startDate" name="startDate" id="startDate"
+        bsDatepicker>
+    </div>
+
+    <div class="form-group">
+      <label for="startDate" >Start Date</label>
+      <input type="text"
+        placeholder="Start Date"
+        class="form-control"
+        [(ngModel)]="startDate" name="startDate" id="startDate"
+        bsDaterangepicker>
+    </div>
+
+    Start Date: {{ startDate }}
+
+    <div class="form-group">
+      <label for="startTime" >Start Time</label>
+      <timepicker type="text"
+        [(ngModel)]="startTime" name="startTime" id="startTime"
+        ></timepicker>
+    </div>
+
+    Start Time: {{ startTime }}
+
+    <div class="form-group">
+      User Rating
+      <rating [(ngModel)]="userRating" [max]="maxRating" [readonly]="isReadonly"
+        name="userRating" id="userRating"
+        [titles]="['one','two','three']"></rating>
+    </div>
+
+    Start Time: {{ userRating }}
+
     <div class="form-group">
       <label for="subscriptionType">Subscription Type</label>
       <select class="form-control" id="subscriptionType" name="subscriptionType" [(ngModel)]="userSettings.subscriptionType" >
-        <option>Monthly</option>
-        <option>Annual</option>
-        <option>Lifetime</option>
+        <option *ngFor='let type of subscriptionTypes | async'>
+          {{ type }}
+        </option>
       </select>
     </div>
     <div class="form-group">
@@ -75,6 +132,10 @@
       <textarea id="notes" name="notes" class="form-control" rows="3" [(ngModel)]="userSettings.notes"></textarea>
     </div>
 
+    <div [hidden]='!postError'
+      class='alert alert-danger'>
+      {{ postErrorMessage }}
+    </div>
     <button class="btn btn-primary">OK</button>
   </form>
 </div>
