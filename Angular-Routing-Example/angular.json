@@ -123,6 +123,127 @@
           }
         }
       }
+    },
+    "help-area": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/help-area",
+      "sourceRoot": "projects/help-area/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/help-area",
+            "index": "projects/help-area/src/index.html",
+            "main": "projects/help-area/src/main.ts",
+            "polyfills": "projects/help-area/src/polyfills.ts",
+            "tsConfig": "projects/help-area/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/help-area/src/favicon.ico",
+              "projects/help-area/src/assets"
+            ],
+            "styles": [
+              "projects/help-area/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/help-area/src/environments/environment.ts",
+                  "with": "projects/help-area/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "help-area:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "help-area:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "help-area:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/help-area/src/test.ts",
+            "polyfills": "projects/help-area/src/polyfills.ts",
+            "tsConfig": "projects/help-area/tsconfig.spec.json",
+            "karmaConfig": "projects/help-area/karma.conf.js",
+            "assets": [
+              "projects/help-area/src/favicon.ico",
+              "projects/help-area/src/assets"
+            ],
+            "styles": [
+              "projects/help-area/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/help-area/tsconfig.app.json",
+              "projects/help-area/tsconfig.spec.json",
+              "projects/help-area/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/help-area/e2e/protractor.conf.js",
+            "devServerTarget": "help-area:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "help-area:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "Angular-Routing-Example",
