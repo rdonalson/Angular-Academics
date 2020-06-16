@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <a class="navbar-brand">{{ pageTitle }}</a>
+  <ul class="nav nav-pills">
+    <li><a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a></li>
+    <li><a class="nav-link" [routerLink]="['/customer']">Customer</a></li>
+    <li><a class="nav-link" [routerLink]="['/admin/users']">Admin -> Users</a></li>
+    <li><a class="nav-link" [routerLink]="['/admin/blast']">Admin -> Blast</a></li>
+  </ul>
+</nav>
+
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>
