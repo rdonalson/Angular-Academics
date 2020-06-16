@@ -26,10 +26,10 @@ describe('AppComponent', () => {
     expect(app.pageTitle).toEqual('Angular-Routing-Example');
   });
 
-  it('should render title', () => {
+  it('should render title in an h3 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Angular-Routing-Example app is running!');
+    expect(compiled.querySelector('h3.header').textContent).toBeDefined('Angular-Routing-Example');
   });
 });
