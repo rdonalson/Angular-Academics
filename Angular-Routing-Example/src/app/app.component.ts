@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoggerService } from 'logging';
 
 @Component({
   selector: 'are-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   pageTitle = 'Angular-Routing-Example';
+
+  constructor(logger: LoggerService){
+    logger.log('Hello from Angular');
+  }
 }

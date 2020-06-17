@@ -244,6 +244,46 @@
           }
         }
       }
+    },
+    "logging": {
+      "projectType": "library",
+      "root": "projects/logging",
+      "sourceRoot": "projects/logging/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/logging/tsconfig.lib.json",
+            "project": "projects/logging/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logging/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logging/src/test.ts",
+            "tsConfig": "projects/logging/tsconfig.spec.json",
+            "karmaConfig": "projects/logging/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logging/tsconfig.lib.json",
+              "projects/logging/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "Angular-Routing-Example",
