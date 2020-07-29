@@ -22,6 +22,7 @@ import { CreateEventComponent } from './events/create-event.component';
 import { Error404Component } from './errors/404.component';
 import { UserModule } from './user/user.module';
 import { AuthService } from './user/auth.service';
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { AuthService } from './user/auth.service';
     EventDetailsComponent,
     CreateEventComponent,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   providers: [
     EventService,
