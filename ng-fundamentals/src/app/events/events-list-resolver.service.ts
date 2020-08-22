@@ -13,7 +13,7 @@ export class EventListResolver implements Resolve<any> {
      route: ActivatedRouteSnapshot,
      state: RouterStateSnapshot
     ) {
-    return this.eventService.getEvents().pipe(map(events => events));
+    return this.eventService.getEvents();   // .pipe(map(events => events));
   }
 }
 
