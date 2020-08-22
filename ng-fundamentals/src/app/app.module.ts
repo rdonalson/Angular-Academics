@@ -14,6 +14,7 @@ import {
   SessionListComponent,
   UpvoteComponent,
   VoterService,
+  LocationValidatorDirective,
   DurationPipe
 } from './events/index';
 
@@ -57,6 +58,7 @@ const jQuery = window['$'];
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
+    LocationValidatorDirective,
     UpvoteComponent,
     DurationPipe,
     SimpleModalComponent,
