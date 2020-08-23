@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { EventService } from './shared/event.service';
+import { map } from 'rxjs/operators';
 
 @Injectable()
-export class EventListResolver implements Resolve<any> {
+export class EventResolver implements Resolve<any> {
 
   constructor(
     private eventService: EventService
@@ -12,7 +13,8 @@ export class EventListResolver implements Resolve<any> {
      route: ActivatedRouteSnapshot,
      state: RouterStateSnapshot
     ) {
-    return this.eventService.getEvents();
+    // tslint:disable-next-line: no-string-literal
+    return this.eventService.getEvent(route.params.id);
   }
 }
 

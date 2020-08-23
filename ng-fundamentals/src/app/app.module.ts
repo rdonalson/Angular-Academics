@@ -9,8 +9,8 @@ import {
   EventThumbnailComponent,
   EventService,
   EventDetailsComponent,
-  EventRouteActivator,
   EventListResolver,
+  EventResolver,
   CreateSessionComponent,
   SessionListComponent,
   UpvoteComponent,
@@ -29,6 +29,7 @@ import {
   SimpleModalComponent,
   ModalTriggerDirective
 } from './common/index';
+
 import { appRoutes } from './routes';
 import { CreateEventComponent } from './events/create-event.component';
 import { Error404Component } from './errors/404.component';
@@ -70,8 +71,8 @@ const jQuery = window['$'];
     EventService,
     { provide: TOASTR_TOKEN, useValue: toastr },
     { provide: JQ_TOKEN, useValue: jQuery },
-    EventRouteActivator,
     EventListResolver,
+    EventResolver,
     VoterService,
     AuthService,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
