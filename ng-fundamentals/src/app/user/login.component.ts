@@ -13,15 +13,22 @@ export class LoginComponent {
   userName: string;
   password: string;
   mouseoverLogin: boolean;
+  // tslint:disable-next-line: no-inferrable-types
+  loginInvalid: boolean = false;
 
   constructor(
     private authService: AuthService,
     private router: Router
   ) {}
-  login(formValues: { userName: any; password: any; }) {
-    this.authService.loginUser(formValues.userName, formValues.password);
-    this.router.navigate(['events']);
-    console.log(formValues);
+  login(formValues: { userName: string; password: string; }) {
+    this.authService.loginUser(formValues.userName, formValues.password)
+      .subscribe((resp: any) => {
+        if (!resp) {
+          this.loginInvalid = true;
+        } else {
+          this.router.navigate(['events']);
+        }
+      });
   }
 
   cancel() {
