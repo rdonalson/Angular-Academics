@@ -1,6 +1,7 @@
+import { SimpleChanges } from '@angular/core';
+
 import { SessionListComponent } from './session-list.component';
 import { ISession } from '../shared/event.model';
-import { SimpleChanges } from '@angular/core';
 import { AuthService } from 'src/app/user/auth.service';
 import { VoterService } from './voter.service';
 
