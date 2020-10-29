@@ -8,6 +8,7 @@ import { MessageService } from '../messages/message.service';
 })
 export class AuthService {
   currentUser: User;
+  redirectUrl: string;
 
   get isLoggedIn(): boolean {
     return !!this.currentUser;
@@ -23,7 +24,7 @@ export class AuthService {
     if (userName === 'admin') {
       this.currentUser = {
         id: 1,
-        userName: userName,
+        userName,
         isAdmin: true
       };
       this.messageService.addMessage('Admin login');
@@ -31,7 +32,7 @@ export class AuthService {
     }
     this.currentUser = {
       id: 2,
-      userName: userName,
+      userName,
       isAdmin: false
     };
     this.messageService.addMessage(`User: ${this.currentUser.userName} logged in`);
