@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <StartupObject>SecuringAngularApps.API.Program</StartupObject>
     </PropertyGroup>
 
     <ItemGroup>
@@ -11,7 +12,7 @@
     <ItemGroup>
         <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="2.7.0" />
         <PackageReference Include="Microsoft.AspNetCore.App" />
-        <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.1.0" />
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
         <PackageReference Include="System.Runtime.Serialization.Json" Version="4.3.0" />
         <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />

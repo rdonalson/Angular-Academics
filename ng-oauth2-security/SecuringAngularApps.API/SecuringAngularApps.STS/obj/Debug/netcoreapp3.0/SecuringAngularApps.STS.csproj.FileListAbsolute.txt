@@ -1,0 +1,7 @@
+C:\Users\rickd\source\repos\Angular-Academics\ng-oauth2-security\SecuringAngularApps.API\SecuringAngularApps.STS\obj\Debug\netcoreapp3.0\SecuringAngularApps.STS.csprojAssemblyReference.cache
+C:\Users\rickd\source\repos\Angular-Academics\ng-oauth2-security\SecuringAngularApps.API\SecuringAngularApps.STS\obj\Debug\netcoreapp3.0\SecuringAngularApps.STS.AssemblyInfoInputs.cache
+C:\Users\rickd\source\repos\Angular-Academics\ng-oauth2-security\SecuringAngularApps.API\SecuringAngularApps.STS\obj\Debug\netcoreapp3.0\SecuringAngularApps.STS.AssemblyInfo.cs
+C:\Users\rickd\source\repos\Angular-Academics\ng-oauth2-security\SecuringAngularApps.API\SecuringAngularApps.STS\obj\Debug\netcoreapp3.0\SecuringAngularApps.STS.csproj.CoreCompileInputs.cache
+C:\Users\rickd\source\repos\Angular-Academics\ng-oauth2-security\SecuringAngularApps.API\SecuringAngularApps.STS\obj\Debug\netcoreapp3.0\SecuringAngularApps.STS.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\rickd\source\repos\Angular-Academics\ng-oauth2-security\SecuringAngularApps.API\SecuringAngularApps.STS\obj\Debug\netcoreapp3.0\SecuringAngularApps.STS.RazorAssemblyInfo.cache
+C:\Users\rickd\source\repos\Angular-Academics\ng-oauth2-security\SecuringAngularApps.API\SecuringAngularApps.STS\obj\Debug\netcoreapp3.0\SecuringAngularApps.STS.RazorAssemblyInfo.cs

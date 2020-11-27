@@ -13,7 +13,7 @@ namespace SecuringAngularApps.API.Controllers
 {
     [Produces("application/json")]
     [Route("api/Projects")]
-    //[Authorize]
+    // [Authorize]
     public class ProjectsController : Controller
     {
         private readonly ProjectDbContext _context;
