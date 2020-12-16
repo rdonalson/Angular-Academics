@@ -379,6 +379,21 @@ var HeroDetailComponent = /** @class */ (function () {
     return HeroDetailComponent;
 }());
 
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function () {
+        var context = this, args = arguments;
+        var later = function () {
+            timeout = null;
+            if (!immediate)
+                func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        timeout = setTimeout(later, wait);
+        if (callNow)
+            func.apply(context, args);
+    };
+}
 
 
 /***/ }),
@@ -933,13 +948,13 @@ var StrengthPipe = /** @class */ (function () {
     }
     StrengthPipe.prototype.transform = function (value) {
         if (value < 10) {
-            return value + " (weak)";
+            return value + ' (weak)';
         }
         else if (value >= 10 && value < 20) {
-            return value + " (strong)";
+            return value + ' (strong)';
         }
         else {
-            return value + " (unbelievable)";
+            return value + ' (unbelievable)';
         }
     };
     StrengthPipe = __decorate([
