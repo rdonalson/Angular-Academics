@@ -1,12 +1,13 @@
 import { of } from 'rxjs/internal/observable/of';
+import { HeroService } from '../hero.service';
 
 import { HeroesComponent } from './heroes.component';
 
 describe('HeroesComponent', () => {
 
   let component: HeroesComponent;
-  let HEROES;
-  let mockHeroService;
+  let HEROES: any[];
+  let mockHeroService: HeroService;
   beforeEach(() => {
     HEROES = [
       {id: 1, name: 'SpiderDude', strength: 8},

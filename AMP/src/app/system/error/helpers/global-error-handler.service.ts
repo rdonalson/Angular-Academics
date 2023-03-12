@@ -5,7 +5,9 @@ import { ObservableInput, throwError } from 'rxjs';
 
 @Injectable()
 export class GlobalErrorHandlerService implements ErrorHandler {
-  constructor(private injector: Injector) {}
+  constructor(
+    private injector: Injector
+  ) {}
 
   globalHandleError(error: any) {
     const router = this.injector.get(Router);

@@ -20,7 +20,10 @@ export class ProductService {
 
   getProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(this.productUrl).pipe(
-      tap(data => console.log('All: ' + JSON.stringify(data))),
+      tap(data => {
+        console.log('All: ' + JSON.stringify(data));
+                    throw new Error('There is an error');
+      }),
       catchError(this.err.handleError)
     );
   }

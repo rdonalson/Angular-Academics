@@ -1,0 +1,19 @@
+{
+  "FilePath": "c:\\Users\\rickd\\source\\repos\\Angular-Academics\\ng-oauth2-security\\SecuringAngularApps.API\\SecuringAngularApps.API\\SecuringAngularApps.API.csproj",
+  "Configuration": {
+    "ConfigurationName": "MVC-3.0",
+    "LanguageVersion": "3.0",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-3.0"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": {
+    "TagHelpers": [],
+    "CSharpLanguageVersion": 800
+  },
+  "RootNamespace": "SecuringAngularApps.API",
+  "Documents": [],
+  "SerializationFormat": "0.2"
+}
