@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h3 class="header">Hello {{ title }}</h3>
+
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <ul class="nav nav-pills">
+    <li><a class="nav-link" [routerLink]="['/']">Home</a></li>
+    <li><a class="nav-link" [routerLink]="['/map']">Map</a></li>
+  </ul>
+</nav>
+
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>
