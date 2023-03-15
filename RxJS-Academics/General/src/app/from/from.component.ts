@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { of, from } from 'rxjs';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-from',
+  templateUrl: './from.component.html',
+  styleUrls: ['./from.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class FromComponent implements OnInit {
 
   constructor() { }
 
@@ -27,5 +27,4 @@ export class HomeComponent implements OnInit {
       complete: () => console.log(`No more Apples, go home`)
     })
   }
-
 }
