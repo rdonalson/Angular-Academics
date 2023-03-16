@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, map, Observable, tap, throwError } from 'rxjs';
+import { catchError, combineLatest, map, Observable, tap, throwError } from 'rxjs';
 
 import { Product } from './product';
+import { ProductCategoryService } from '../product-categories/product-category.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +14,28 @@ export class ProductService {
 
   products$ = this.http.get<Product[]>(this.productsUrl)
     .pipe(
-      map(products => products.map(product => ({
-        ...product,
-        price: product.price ? product.price * 1.5 : 0,
-        searchKey: [product.productName]
-      } as Product))),
       tap((data): void => console.log('Products: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
 
-  constructor(private http: HttpClient) { }
+  productsWithCategory$ = combineLatest([
+    this.products$,
+    this.productCategoryService.productCategories$
+  ]).pipe(
+    map(([products, categories]) =>
+      products.map(product => ({
+        ...product,
+        price: product.price ? product.price * 1.5 : 0,
+        category: categories.find(c => product.categoryId === c.id)?.name,
+        searchKey: [product.productName]
+      } as Product))
+    )
+  );
+
+  constructor(
+    private http: HttpClient,
+    private productCategoryService: ProductCategoryService
+  ) { }
 
   private fakeProduct(): Product {
     return {
@@ -37,6 +50,11 @@ export class ProductService {
     };
   }
 
+  /**
+   * Error Handler
+   * @param {HttpErrorResponse} err error info from the catch error or error object
+   * @returns {Observable<never>}
+   */
   private handleError(err: HttpErrorResponse): Observable<never> {
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console

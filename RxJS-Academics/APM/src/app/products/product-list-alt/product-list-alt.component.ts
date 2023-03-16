@@ -14,6 +14,10 @@ export class ProductListAltComponent {
   errorMessage = '';
   selectedProductId = 0;
 
+
+  /**
+   * Products$  of product list alt component
+   */
   products$ = this.productService.products$
     .pipe(
       catchError(err => {
@@ -22,8 +26,17 @@ export class ProductListAltComponent {
       })
     );
 
+
+  /**
+   * Creates an instance of product list alt component.
+   * @param productService
+   */
   constructor(private productService: ProductService) { }
 
+  /**
+   * Determines whether selected on
+   * @param {number} productId
+   */
   onSelected(productId: number): void {
     console.log('Not yet implemented');
   }

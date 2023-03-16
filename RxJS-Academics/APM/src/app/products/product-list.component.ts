@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { catchError, EMPTY } from 'rxjs';
 
 import { ProductCategory } from '../product-categories/product-category';
-import { Product } from './product';
 import { ProductService } from './product.service';
 
 @Component({
@@ -15,7 +14,7 @@ export class ProductListComponent {
   errorMessage = '';
   categories: ProductCategory[] = [];
 
-  products$ = this.productService.products$
+  products$ = this.productService.productsWithCategory$
     .pipe(
       catchError(err => {
         this.errorMessage = err;
