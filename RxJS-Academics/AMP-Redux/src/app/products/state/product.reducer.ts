@@ -1,9 +1,27 @@
 import { createAction, createReducer, on } from "@ngrx/store";
+import * as AppState from '../../state/app.state';
 
-export const productReducer = createReducer(
-  { showProductCode: true},
-  on(createAction('[Product] Toggle Product Code'), state => {
-    // console.log('orginal state: ' + JSON.stringify(state));
+import { Product } from "../product";
+
+export interface State extends AppState.State {
+  products: ProductState;
+}
+
+export interface ProductState {
+  showProductCode: boolean;
+  currentProduct: Product | null;
+  products: Product[];
+}
+
+const initialState: ProductState = {
+  showProductCode: true,
+  currentProduct: null,
+  products: []
+};
+
+export const productReducer = createReducer<ProductState>(
+  initialState,
+  on(createAction('[Product] Toggle Product Code'), (state): ProductState => {
     return {
       ...state,
       showProductCode: !state.showProductCode

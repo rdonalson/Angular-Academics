@@ -12,6 +12,8 @@ import { ShellComponent } from './home/shell.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductData } from './products/product-data';
 import { UserModule } from './user/user.module';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment.prod';
 
 @NgModule({
   imports: [
@@ -20,16 +22,21 @@ import { UserModule } from './user/user.module';
     InMemoryWebApiModule.forRoot(ProductData, { delay: 1000 }),
     UserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument({
+      name: 'APM Demo App Devtools',
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
   ],
   declarations: [
     AppComponent,
     ShellComponent,
     MenuComponent,
     WelcomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
