@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "nx serve --host=127.0.0.1 --configuration=development",
-    "build": "nx build --configuration=development",
-    "watch": "nx build --watch --configuration development",
-    "test": "nx test"
+    "start": "ng serve --host=127.0.0.1 --configuration=development",
+    "build": "ng build --configuration=development",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
