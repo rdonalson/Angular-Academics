@@ -12,15 +12,15 @@ import { ProductService } from '../product.service';
 })
 export class ProductListComponent implements OnInit, OnDestroy {
   pageTitle = 'Products';
-  errorMessage: string;
+  errorMessage!: string;
 
-  displayCode: boolean;
+  displayCode!: boolean;
 
-  products: Product[];
+  products!: Product[];
 
   // Used to highlight the selected product in the list
-  selectedProduct: Product | null;
-  sub: Subscription;
+  selectedProduct!: Product | null;
+  sub!: Subscription;
 
   constructor(private productService: ProductService) { }
 
