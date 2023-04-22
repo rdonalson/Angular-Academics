@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { Observable, tap } from 'rxjs';
 
 import { Product } from '../product';
 import { ProductService } from '../product.service';
@@ -8,7 +9,6 @@ import { GenericValidator } from '../../shared/generic-validator';
 import { NumberValidators } from '../../shared/number.validator';
 import { State, getCurrentProduct } from '../state/product.reducer';
 import * as ProductActions from '../state/product.actions';
-import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'pm-product-edit',

@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import {
   State,
   getCurrentProduct,
+  getError,
   getProducts,
   getShowProductCode,
 } from '../state/product.reducer';
@@ -18,13 +19,13 @@ import { Observable } from 'rxjs';
 })
 export class ProductListComponent implements OnInit {
   pageTitle = 'Products';
-  errorMessage!: string;
-  
+
   products$!: Observable<Product[]>;
 
   // Used to highlight the selected product in the list
   selectedProduct$!: Observable<Product | null>;
   displayCode$!: Observable<boolean>;
+  errorMessage$!: Observable<string>;
 
   constructor(
     private store: Store<State>
@@ -33,6 +34,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
 
     this.products$ = this.store.select(getProducts);
+    this.errorMessage$ = this.store.select(getError);
     this.store.dispatch(ProductActions.loadProducts());
 
     this.selectedProduct$ = this.store.select(getCurrentProduct);
