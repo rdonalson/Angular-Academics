@@ -9,17 +9,20 @@ import { State } from '../state/app.state';
 import { getMaskUserName } from './state/user.reducer';
 import * as UserActions from '../user/state/user.actions';
 
-
 @Component({
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   pageTitle = 'Log In';
 
   maskUserName$!: Observable<boolean | undefined>;
 
-  constructor(private store: Store<State>, private authService: AuthService, private router: Router) { }
+  constructor(
+    private store: Store<State>,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.maskUserName$ = this.store.select(getMaskUserName);

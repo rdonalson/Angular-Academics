@@ -15,7 +15,7 @@ export interface UserState {
 
 const initialState: UserState = {
   maskUserName: true,
-  currentUser: null
+  currentUser: null,
 };
 
 const getUserFeatureState = createFeatureSelector<UserState>('users');

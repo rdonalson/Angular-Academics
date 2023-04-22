@@ -27,12 +27,9 @@ export class ProductListComponent implements OnInit {
   displayCode$!: Observable<boolean>;
   errorMessage$!: Observable<string>;
 
-  constructor(
-    private store: Store<State>
-  ) {}
+  constructor(private store: Store<State>) {}
 
   ngOnInit(): void {
-
     this.products$ = this.store.select(getProducts);
     this.errorMessage$ = this.store.select(getError);
     this.store.dispatch(ProductActions.loadProducts());
