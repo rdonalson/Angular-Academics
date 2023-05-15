@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'pm-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
   pageTitle = 'Products';
@@ -29,7 +29,6 @@ export class ProductListComponent implements OnInit {
   constructor(private store: Store<State>) {}
 
   ngOnInit(): void {
-
     // Do NOT subscribe here because it uses an async pipe
     // This gets the initial values until the load is complete.
     this.products$ = this.store.select(getProducts);
@@ -55,6 +54,8 @@ export class ProductListComponent implements OnInit {
   }
 
   productSelected(product: Product): void {
-    this.store.dispatch(ProductActions.setCurrentProduct({ currentProductId: product.id }));
+    this.store.dispatch(
+      ProductActions.setCurrentProduct({ currentProductId: product.id })
+    );
   }
 }
