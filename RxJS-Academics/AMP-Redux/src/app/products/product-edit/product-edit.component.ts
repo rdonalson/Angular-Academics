@@ -25,7 +25,7 @@ export class ProductEditComponent implements OnInit {
   displayMessage: { [key: string]: string } = {};
   private validationMessages: { [key: string]: { [key: string]: string } };
   private genericValidator: GenericValidator;
-  product$!: Observable<Product | null>;
+  product$!: Observable<Product | null | undefined>;
 
   constructor(
     private store: Store<State>,
@@ -91,7 +91,7 @@ export class ProductEditComponent implements OnInit {
     );
   }
 
-  displayProduct(product: Product | null): void {
+  displayProduct(product: Product| null | undefined): void {
     if (product) {
       // Reset the form back to pristine
       this.productForm.reset();
@@ -145,18 +145,12 @@ export class ProductEditComponent implements OnInit {
           this.productService.createProduct(product).subscribe({
             next: (p) =>
               this.store.dispatch(
-                ProductActions.setCurrentProduct({ product: p })
+                ProductActions.setCurrentProduct({ currentProductId: p.id })
               ),
             error: (err) => (this.errorMessage = err),
           });
         } else {
-          this.productService.updateProduct(product).subscribe({
-            next: (p) =>
-              this.store.dispatch(
-                ProductActions.setCurrentProduct({ product: p })
-              ),
-            error: (err) => (this.errorMessage = err),
-          });
+          this.store.dispatch(ProductActions.updateProduct({ product }));
         }
       }
     }
